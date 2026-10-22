@@ -2,43 +2,26 @@
 <html lang="id" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SIM IKALLHUBDAT — DPD Kalimantan Timur</title>
+  <meta name="description" content="Sistem Informasi Manajemen Data Alumni IKALLHUBDAT DPD Provinsi Kalimantan Timur: pendaftaran alumni, pembaruan data, kartu tanda anggota digital, berita dan galeri kegiatan.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B2A5B'/%3E%3Cpath d='M16 6l8 3v7c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V9z' fill='%23D4A72C'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0B2A5B">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:title" content="SIM IKALLHUBDAT — DPD Kalimantan Timur">
+  <meta property="og:description" content="Basis data alumni terpusat, KTA digital, berita dan galeri kegiatan IKALLHUBDAT Kalimantan Timur.">
 
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            'primary': '#0B2A5B',
-            'primary-dark': '#061633',
-            'on-primary': '#FFFFFF',
-            'gold': '#D4A72C',
-            'gold-light': '#FCD34D',
-            'gold-dark': '#B45309',
-            'surface': '#F4F6FA',
-            'surface-card': '#FFFFFF',
-            'ink': '#111C2D',
-            'ink-soft': '#44474F',
-            'outline': '#747780',
-            'outline-variant': '#E2E8F0'
-          },
-          fontFamily: {
-            'head': ['Montserrat', 'sans-serif'],
-            'body': ['Inter', 'sans-serif']
-          },
-          borderRadius: { DEFAULT: '0.375rem', lg: '0.5rem', xl: '0.75rem', full: '9999px' }
-        }
-      }
-    };
-  </script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Font dimuat tanpa memblokir tampilan awal (media=print → all setelah selesai). -->
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap">
+  <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add,admin_panel_settings,analytics,arrow_forward,badge,cancel,check_circle,chevron_left,chevron_right,cloud_upload,dark_mode,dashboard,delete,description,done_all,download,draw,edit,edit_note,error,expand_more,folder_open,format_list_numbered,forward_to_inbox,gpp_maybe,groups,history,home,hourglass_top,how_to_reg,image,info,key,link,lock,logout,mail,menu,more_horiz,network_check,notifications,open_in_new,person,person_add,person_remove,picture_as_pdf,print,qr_code_2,refresh,save,schedule,search,space_dashboard,sync_alt,table_view,upload,upload_file,verified,visibility,warning&display=block">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="css/app.min.css">
 </head>
 <body class="font-body bg-surface text-ink antialiased">
 
@@ -70,16 +53,16 @@
              punya overflow apa pun) supaya dropdown-nya bisa muncul normal. -->
         <div id="topbarMoreWrap" class="topbar-more"></div>
         <span class="gas-status-pill"><span class="dot"></span> GAS Connected</span>
-        <button class="topbar-icon-btn" onclick="toggleDarkMode()" title="Ganti Tema"><span class="material-symbols-outlined text-[20px]">dark_mode</span></button>
-        <button class="topbar-icon-btn" title="Notifikasi"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
-        <div class="topbar-user" onclick="handleLogout()" title="Klik untuk keluar">
+        <button class="topbar-icon-btn" onclick="toggleDarkMode()" title="Ganti Tema" aria-label="Ganti tema"><span class="material-symbols-outlined text-[20px]">dark_mode</span></button>
+        <button class="topbar-icon-btn" title="Notifikasi" aria-label="Notifikasi"><span class="material-symbols-outlined text-[20px]">notifications</span></button>
+        <div class="topbar-user" onclick="handleLogout()" title="Klik untuk keluar" role="button" tabindex="0" aria-label="Keluar dari akun">
           <div class="topbar-user-avatar" id="topbarUserAvatar">?</div>
           <div class="topbar-user-text">
             <span class="topbar-user-name" id="topbarUserName">Pengguna</span>
             <span class="topbar-role-badge" id="topbarUserRole">-</span>
           </div>
         </div>
-        <button id="mobileMenuBtn" class="mobile-menu-btn" onclick="toggleMobileMenu()"><span class="material-symbols-outlined text-[26px]">menu</span></button>
+        <button id="mobileMenuBtn" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Buka menu"><span class="material-symbols-outlined text-[26px]">menu</span></button>
       </div>
     </div>
     <div id="mobileMenuPanel" class="mobile-menu-panel hidden"></div>
@@ -106,9 +89,9 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script src="js/config.js"></script>
-  <script src="js/api.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/config.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/app.min.js" defer></script>
+  <noscript><p style="padding:2rem;text-align:center">Aplikasi SIM IKALLHUBDAT memerlukan JavaScript. Aktifkan JavaScript di browser Anda.</p></noscript>
 </body>
 </html>

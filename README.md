@@ -9,10 +9,10 @@ Sistem Informasi Manajemen Data Alumni IKALLHUBDAT DPD Kalimantan Timur.
 Struktur:
 ```
 index.html
-css/style.css
-js/config.js   ← URL API (GAS /exec)
-js/api.js      ← fetch ke GAS (pengganti google.script.run)
-js/app.js      ← seluruh logika aplikasi
+css/app.min.css  ← gaya (Tailwind hasil build + style kustom, sudah diperkecil)
+js/config.js     ← URL API (GAS /exec)
+js/api.js        ← fetch ke GAS (pengganti google.script.run)
+js/app.min.js    ← seluruh logika aplikasi (sudah diperkecil)
 ```
 
 Panduan lengkap: lihat `PANDUAN-INSTALASI.md`.
